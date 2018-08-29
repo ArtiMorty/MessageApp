@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Message App</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<div id="app">
+    <div>
+		<span>Endpoint url:</span><input type="text" v-model="endpoint" size="70"/>
+	</div>
+	<div>
+		<span>Subject:</span><input type="text" v-model="subject" size="70"/>
+	</div>
+	<div>
+		<span>Body:</span><textarea  type="text" v-model="body" size="70"></textarea>
+	</div>
+    <span>Recipients:</span>
+    <div v-for="(r, i) in recipients">
+        <input type="text" v-model="recipients[i]"/><button @click="removeRecipient(i)">del</button>
+    </div>
+    <button @click="addRecipient">add recipient</button>
+    <p>{{message}}</p>
+	
+    <button @click="send">send</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script src="app.js"></script>
+</body>
+</html>
